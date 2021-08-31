@@ -25,7 +25,7 @@ Route::get('/about', function () {
 
 Route::get('/surat/{id}', 'SuratController@showDetail');
 
-Route::post('/delete/{id}', 'SuratController@deleteFile');
+Route::get('/delete/{id}', 'SuratController@deleteFile');
 
 Route::get('/newData', function () {
     return view('form');

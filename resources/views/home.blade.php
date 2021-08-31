@@ -75,7 +75,8 @@
                   <td>
                     <div class="col">
                       <button type="button" class="btn btn-danger" id="btnDelete"  data-id="{{$s->id}}" data-bs-toggle="modal" data-bs-target="#deleteModal">Hapus</button>
-                      <button type="button" id="btnDownload" class="btn btn-warning" data-file="{{$s->file}}" data-judul="{{$s->judul}}">Unduh</button>
+                      <!-- <button type="button" id="btnDownload" class="btn btn-warning" data-file="{{$s->file}}" data-judul="{{$s->judul}}">Unduh</button> -->
+                      <a download="{{$s->judul}}" href="{{$s->file}}" title='Download pdf document'><button class="btn btn-warning" >Unduh</button></a>
                       <a href="{{url('/surat')}}{{'/'.$s->id}}"> <button type="button" class="btn btn-info">Lihat >></button></a>
                     </div>
                   </td>  
@@ -132,13 +133,8 @@
         search_table($('#search').val());  
       });
 
-      $('#search').keyup(function(){  
-        search_table($(this).val());  
-      });  
-
       $('#btnDelete').click(function(event){ 
-        var id = $(this).data('id')
-        var a = 'delete'+id;
+        var id = $(this).data('id');
         $('#deletefix').attr("href", "{{url('/delete')}}"+"/"+id);
       });
 
